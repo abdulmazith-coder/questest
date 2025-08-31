@@ -3,6 +3,7 @@ from main.register.auth import *
 from main.register.refreash_token import *
 from main.ai_automation.generate import Generate
 from main.ai_automation.getinstitutiondata import GetInstitutionData
+from main.register.userprofile import Userprofile
 
 urlpatterns = [
     path('signup', Signup.as_view()),
@@ -10,5 +11,6 @@ urlpatterns = [
     path('questest-ai',Generate.as_view()),
     path('refresh-token',RefreshToken.as_view()),
     path('getinstitutiondata/<str:pk>',GetInstitutionData.as_view()),
+    path('getuserprofile/<str:pk>',Userprofile.as_view()),
     
 ]
