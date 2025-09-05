@@ -28,7 +28,7 @@ class Signup(APIView):
                 'email': email,
                 'username': username
             }).execute()
-            return Response({'message': 'Signup successfully'}, status=status.HTTP_201_CREATED)
+            return Response({'message': True}, status=status.HTTP_201_CREATED)
 
             return Response({'message': 'Error in signup try again'}, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
@@ -55,7 +55,8 @@ class Login(APIView):
             return Response({
                 "access_token" : sessions.session.access_token,
                 "refresh_token" : sessions.session.refresh_token,
-                "users": sessions.user.id
+                "userid": sessions.user.id,
+                'message': True
             }, status=status.HTTP_201_CREATED)
 
             return Response({'message': 'Error in login try again'}, status=status.HTTP_400_BAD_REQUEST)
